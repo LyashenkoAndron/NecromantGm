@@ -11,7 +11,7 @@
 
 
 class Necromancy: public Skill {
-public: 
+public:     
     
 void MakeSlave();
     
