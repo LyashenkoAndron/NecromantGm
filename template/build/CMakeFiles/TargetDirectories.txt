@@ -1,0 +1,3 @@
+/home/andron/Desktop/sem3/lab3/template/build/CMakeFiles/main.dir
+/home/andron/Desktop/sem3/lab3/template/build/CMakeFiles/edit_cache.dir
+/home/andron/Desktop/sem3/lab3/template/build/CMakeFiles/rebuild_cache.dir
