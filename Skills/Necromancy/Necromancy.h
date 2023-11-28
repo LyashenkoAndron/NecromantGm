@@ -11,7 +11,7 @@ private:
 
 public:
     Necromancy() {}
-    void changeIntelligence(Enemy & character);
+    //void changeIntelligence(Enemy & character);
     void changeFraction(Character & character);
     //void cast(Enemy& target) override;
 };

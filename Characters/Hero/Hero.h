@@ -19,7 +19,6 @@ protected:
     Necromancy *necromancy;
 public:
     Hero() { this->initVariables(); }
-
     //void upgradeSkill(Skill & skill);
     void initVariables() override;
     void attack(Character &enemy, int movementSpeed = 0) override;

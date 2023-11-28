@@ -1,5 +1,6 @@
 #include "Room.h"
 #include <iostream>
+#include <ctime>
 
 
 void Room::initVariables() {
@@ -28,7 +29,7 @@ void Room::print_t() {
 void Room::spawnEnemies() {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
 
-    int numEnemies = std::rand() % 5 + 1;
+    int numEnemies = std::rand() % 2 + 1;
 
     for (int i = 0; i < numEnemies; ++i) {
         int randomSide = std::rand() % 4; 
@@ -37,7 +38,7 @@ void Room::spawnEnemies() {
         switch (randomSide) {
             case 0:
                 randomX = std::rand() % SizeX;
-                randomY = 0;
+                randomY = 1;
                 break;
             case 1: 
                 randomX = SizeX - 1;
@@ -48,14 +49,14 @@ void Room::spawnEnemies() {
                 randomY = SizeY - 1;
                 break;
             case 3: 
-                randomX = 0;
+                randomX = 1;
                 randomY = std::rand() % SizeY;
                 break;
             default:
                 break;
         }
 
-        vectorEnemies.push_back(std::make_unique<Character>(randomX, randomY, 0, 2));
+        vectorEnemies.push_back(std::make_unique<Enemy>(randomX, randomY, 0, 2, false));
         
     }
 }

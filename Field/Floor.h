@@ -7,77 +7,72 @@
 #include <iostream>
 
 
+
 class Floor {
 private:
     int sizeX;
     int sizeY;
-    std::vector<std::vector<std::shared_ptr<Room>>> rooms;
+    std::vector<std::vector<std::unique_ptr<Room>>> rooms;
 
 public:
-    /*void generateMap() {
+    Floor(int x, int y) : sizeX(x), sizeY(y), rooms(x, std::vector<std::unique_ptr<Room>>(y, nullptr)) {}
+
+    void generateMap() {
+        // Генерация комнат
         for (int i = 0; i < sizeX; ++i) {
             for (int j = 0; j < sizeY; ++j) {
-                /*if (!rooms[i][j]) {
-                    RoomType roomType = getRandomRoomType();
-                    rooms[i][j] = std::make_shared<Room>(roomType);
+                RoomType randomRoomType = static_cast<RoomType>(rand() % static_cast<int>(RoomType::Spawn) + 1);
+                rooms[i][j] = std::make_unique<Room>(randomRoomType);
+            }
+        }
 
-                    if (roomType == RoomType::Empty) {
-                        addHallways(i, j);
-                    }
+        // Создание коридоров
+        for (int i = 0; i < sizeX; ++i) {
+            for (int j = 0; j < sizeY; ++j) {
+                createCorridor(i, j, (i + 1) % sizeX, j); // Горизонтальный коридор
+                createCorridor(i, j, i, (j + 1) % sizeY); // Вертикальный коридор
+            }
+        }
+    }
+
+    void printMap() const {
+        for (int i = 0; i < sizeX; ++i) {
+            for (int j = 0; j < sizeY; ++j) {
+                switch (rooms[i][j]->getType()) {
+                    case RoomType::Empty:
+                        std::cout << "E ";
+                        break;
+                    case RoomType::Hallway:
+                        std::cout << "H ";
+                        break;
+                    case RoomType::LootRoom:
+                        std::cout << "L ";
+                        break;
+                    case RoomType::Arena:
+                        std::cout << "A ";
+                        break;
+                    case RoomType::Spawn:
+                        std::cout << "S ";
+                        break;
                 }
-                //rooms[i][j] = std::make_shared<Room>(RoomType::Arena);
             }
+            std::cout << '\n';
         }
     }
 
-    RoomType getRandomRoomType() {
-        int randNum = rand() % 5; // 0-4
-        switch (randNum) {
-            case 0: return RoomType::Empty;
-            case 1: return RoomType::Hallway;
-            case 2: return RoomType::LootRoom;
-            case 3: return RoomType::Arena;
-            case 4: return RoomType::Spawn;
-            default: return RoomType::Empty;
+private:
+    void createCorridor(int x1, int y1, int x2, int y2) {
+        // Логика создания коридора между комнатами (x1, y1) и (x2, y2)
+        // Пример простой логики; можно настроить под свои требования
+        RoomType type1 = rooms[x1][y1]->getType();
+        RoomType type2 = rooms[x2][y2]->getType();
+
+        if (type1 != RoomType::Empty && type2 != RoomType::Empty) {
+            std::cout << "Создание коридора между (" << x1 << ", " << y1 << ") и (" << x2 << ", " << y2 << ")\n";
+            // Добавить логику для заполнения коридора или соединения существующих комнат
         }
     }
-
-    void addHallways(int x, int y) {
-        addHallway(x - 1, y);
-        addHallway(x + 1, y);
-        addHallway(x, y - 1);
-        addHallway(x, y + 1);
-    }
-
-    void addHallway(int x, int y) {
-        if (x >= 0 && x < sizeX && y >= 0 && y < sizeY && !rooms[x][y]) {
-            rooms[x][y] = std::make_shared<Room>(RoomType::Hallway);
-        }
-    }
-
-    void printMap() {
-        for (int i = 0; i < sizeX; ++i) {
-            for (int j = 0; j < sizeY; ++j) {
-                char roomSymbol = getRoomSymbol(rooms[i][j]->getType());
-                std::cout << roomSymbol << " ";
-            }
-            std::cout << std::endl;
-        }
-    }
-
-    char getRoomSymbol(RoomType type) {
-        switch (type) {
-            case RoomType::Empty: return '0';
-            case RoomType::Hallway: return 'h';
-            case RoomType::LootRoom: return 'l';
-            case RoomType::Arena: return 'a';
-            case RoomType::Spawn: return 's';
-            default: return '?';
-        }
-    }*/
 };
-
-
 
 
 #endif

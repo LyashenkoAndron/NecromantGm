@@ -9,7 +9,7 @@ class Enemy : public Character {
 private:
     bool IsSummoner;
 public:
-
+    Enemy(int x, int y, int dps, int radius, bool dead) : Character(x, y, dps, radius, dead) {} 
     void setIsSummoner();
 
     void chasing(Character & hero);

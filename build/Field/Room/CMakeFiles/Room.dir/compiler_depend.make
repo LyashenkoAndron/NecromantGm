@@ -93,6 +93,7 @@ Field/Room/CMakeFiles/Room.dir/Room.cpp.o: /home/andron/Desktop/sem3/lab3/Field/
   /usr/include/c++/11/cstdint \
   /usr/include/c++/11/cstdio \
   /usr/include/c++/11/cstdlib \
+  /usr/include/c++/11/ctime \
   /usr/include/c++/11/cwchar \
   /usr/include/c++/11/cwctype \
   /usr/include/c++/11/debug/assertions.h \
@@ -314,9 +315,7 @@ Field/Room/CMakeFiles/Room.dir/Room.cpp.o: /home/andron/Desktop/sem3/lab3/Field/
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
-/usr/include/c++/11/ext/aligned_buffer.h:
-
-/usr/include/c++/11/pstl/pstl_config.h:
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/c++/11/debug/debug.h:
 
@@ -378,6 +377,10 @@ Field/Room/CMakeFiles/Room.dir/Room.cpp.o: /home/andron/Desktop/sem3/lab3/Field/
 
 /usr/include/c++/11/bits/stl_construct.h:
 
+/usr/include/c++/11/ctime:
+
+/usr/include/c++/11/bits/locale_classes.tcc:
+
 /usr/include/c++/11/bits/stl_bvector.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
@@ -411,8 +414,6 @@ Field/Room/CMakeFiles/Room.dir/Room.cpp.o: /home/andron/Desktop/sem3/lab3/Field/
 /usr/include/c++/11/bits/stl_relops.h:
 
 /usr/include/c++/11/backward/binders.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/c++/11/bit:
 
@@ -492,8 +493,6 @@ Field/Room/CMakeFiles/Room.dir/Room.cpp.o: /home/andron/Desktop/sem3/lab3/Field/
 
 /usr/include/c++/11/bits/ios_base.h:
 
-/usr/include/c++/11/bits/locale_classes.tcc:
-
 /usr/include/c++/11/bits/stl_vector.h:
 
 /usr/include/c++/11/bits/char_traits.h:
@@ -557,6 +556,10 @@ Field/Room/CMakeFiles/Room.dir/Room.cpp.o: /home/andron/Desktop/sem3/lab3/Field/
 /usr/include/c++/11/bits/move.h:
 
 /usr/include/c++/11/vector:
+
+/usr/include/c++/11/ext/aligned_buffer.h:
+
+/usr/include/c++/11/pstl/pstl_config.h:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 

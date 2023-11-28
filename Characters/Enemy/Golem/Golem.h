@@ -10,7 +10,7 @@ private:
     enum class Type {Efir , Stone};
 public:
     Golem() = default;
-
+    void Death() override;
     void MissDirection();
 };
 

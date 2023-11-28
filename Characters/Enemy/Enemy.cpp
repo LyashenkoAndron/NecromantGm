@@ -22,11 +22,9 @@ void Enemy::chasing(Character & hero) {
     if hero stays perpendicular the enemy will go in 1 direction
     in other way he will go to the diagonal
     */
-    std::cout << this->MoveSpeed << "\n";
     if (this->MoveSpeed != 0 && this->isDead == false && this->Side != hero.getSide()) {
         int x = this->PosX, y = this->PosY;
         int xHero = hero.getPosXY()[0], yHero = hero.getPosXY()[1];
-        
         if (x > xHero && y > yHero) {
             this->PosX = x - 1;
             this->PosY = y - 1;

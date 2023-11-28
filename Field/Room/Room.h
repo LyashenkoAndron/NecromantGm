@@ -22,19 +22,19 @@ protected:
     int SizeY;
     RoomType type;
     int matrix[16][16];
-    std::vector<std::unique_ptr<Character>> vectorEnemies;
+    std::vector<std::unique_ptr<Enemy>> vectorEnemies;
 
 
 public:
     Room(RoomType t) : type(t) {}
+
+    RoomType getType() const { return type; }
+    int getArrSize() const { return vectorEnemies.size(); }
+    std::vector<std::unique_ptr<Enemy>>& getArr() { return vectorEnemies; }
     void setMatrixValue(int x, int y, int ind) { matrix[x][y] = ind; }
-
-
-
     void initVariables();
     void  print_t();
     void spawnEnemies();
-    RoomType getType() const { return type; }
 };
 
 

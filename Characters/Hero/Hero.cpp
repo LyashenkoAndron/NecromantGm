@@ -49,7 +49,7 @@ void Hero::attack(Character &enemy, int movementSpeed) {
     if (abs(enemy.getPosXY()[0] - this->PosX) <= this->AttackRadius &&
         abs(enemy.getPosXY()[1] - this->PosY) <= this->AttackRadius && 
         this->isDead == false) {
-        
+        //std::cout << "!!!!!!!!!!\n";
         enemy.setHP(enemy.getHP() - this->DPS);
 
         if (enemy.getHP() <= 0) {
