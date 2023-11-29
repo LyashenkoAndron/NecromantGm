@@ -16,6 +16,8 @@ enum class RoomType {
 };
 
 
+
+// крч, будем использовать комнату, для того, чтобы отрисовывать в будущем все (пол, стены, препятствия сундуки)
 class Room {
 protected: 
     int SizeX;
@@ -35,6 +37,14 @@ public:
     void initVariables();
     void  print_t();
     void spawnEnemies();
+
+    //sfml
+
+    void spawnEnemy(int x, int y, int dps, int radius, bool dead) {
+        std::unique_ptr<Enemy> newEnemy = std::make_unique<Enemy>(x, y, dps, radius, dead);
+        newEnemy->setMovementSpeed(1);
+        vectorEnemies.push_back(std::move(newEnemy));
+    }
 };
 
 
