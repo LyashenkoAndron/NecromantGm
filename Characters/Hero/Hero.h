@@ -19,6 +19,8 @@ protected:
     Necromancy *necromancy;
 public:
     Hero() { this->initVariables(); }
+
+    Hero(int x, int y, int st, int dps, int radius, bool dead) : Character(x, y, st, dps, radius, dead) {} 
     //void upgradeSkill(Skill & skill);
     void initVariables() override;
     void attack(Character &enemy, int movementSpeed = 0) override;
@@ -28,11 +30,11 @@ public:
     //skills
     // крч, нам нахуй не нужен класс slave
     // тк мы можем просто изменять принадлежность касте (менять с hero на slave)
-    void dessicationSkill(Character& enemy);
-    void morphismSkill();
+    //void dessicationSkill(Character& enemy);
+    //void morphismSkill();
 
-    void curseSkill(Character& enemy);
-    void necromanceSkill(Character& enemy);
+    //void curseSkill(Character& enemy);
+    //void necromanceSkill(Character& enemy);
 };
 
 

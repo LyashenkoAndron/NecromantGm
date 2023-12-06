@@ -4,6 +4,7 @@
 #include <vector>
 #include <cmath>
 #include <SFML/Graphics.hpp>
+#include "HealthBar/HealthBar.h"
 
 
 class Character {
@@ -18,15 +19,20 @@ protected:
     int AttackRadius;
     int MoveSpeed;
     bool isDead;
+    int MaxHP;
 
     //sfml
-    float step;
+    int step;
+    HealthBar healthBar;
 
 public:
     enum class Sides {Hero , Enemy};
     Character::Sides Side;
 
-    Character(int x, int y, int dps, int ra, bool dead) : PosX(x), PosY(y), DPS(dps), AttackRadius(ra), isDead(dead), Side(Sides::Enemy), HP(50), step(5.0f) {}
+    Character(int x, int y, int st, int dps, int ra, int ms, bool dead) : PosX(x), PosY(y), step(st), DPS(dps), AttackRadius(ra), MoveSpeed(ms), isDead(dead), Side(Sides::Enemy), HP(50), MaxHP(50){}
+    Character(float x, float y, int st, int dps, int radius, bool dead, int maxHP = 100)
+        : PosX(x), PosY(y), DPS(dps), AttackRadius(radius), isDead(dead), MaxHP(maxHP),
+          healthBar(maxHP, sf::Vector2f(x, y - 20), sf::Vector2f(30, 5)) {}
     Character() {}
     //destructor
     virtual ~Character();
@@ -62,15 +68,22 @@ public:
 
 
     // sfml
+    float getHealthPercentage() const {
+        return static_cast<float>(HP) / MaxHP;
+    }
 
     void move(sf::Vector2i direction) {
     // Обновляем позицию персонажа с использованием значения шага
-        PosX += step * direction.x;
-        PosY += step * direction.y;
+        PosX += (MoveSpeed * direction.x);
+        PosY += (MoveSpeed * direction.y);
     }   
 
     sf::Vector2i getPosXY_() const {
         return sf::Vector2i(PosX, PosY);
+    }
+
+    void drawHealthBar(sf::RenderWindow& window) const {
+        healthBar.draw(window);
     }
 };
 

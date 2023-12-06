@@ -47,12 +47,13 @@ void Hero::lvlUp() {
 
 void Hero::attack(Character &enemy, int movementSpeed) {
     if (abs(enemy.getPosXY()[0] - this->PosX) <= this->AttackRadius &&
-        abs(enemy.getPosXY()[1] - this->PosY) <= this->AttackRadius && 
-        this->isDead == false) {
-        //std::cout << "!!!!!!!!!!\n";
+        abs(enemy.getPosXY()[1] - this->PosY) <= this->AttackRadius /*&& 
+        this->isDead == false*/) {
+        std::cout << enemy.getHP() << "\n\n";
         enemy.setHP(enemy.getHP() - this->DPS);
 
         if (enemy.getHP() <= 0) {
+            std::cout << "111111111111111111\n";
             enemy.Death();
             this->takeXP(enemy.getXP());
             this->Essention += 10;
@@ -76,7 +77,7 @@ void Hero::dessicationSkill() {}
 void Hero::morphismSkill() {}
 */
 
-void Hero::necromanceSkill(Character& enemy) {
+/*void Hero::necromanceSkill(Character& enemy) {
 
     // fix  here radius
     if (abs(enemy.getPosXY()[0] - this->PosX) <= this->AttackRadius &&
@@ -96,4 +97,4 @@ void Hero::curseSkill(Character& enemy) {
         this->takeXP(enemy.getXP());
         this->Essention += 10;
     }
-}
+}*/

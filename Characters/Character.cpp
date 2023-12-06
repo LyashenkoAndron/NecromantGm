@@ -25,9 +25,9 @@ void Character::attack(Character& enemy, int movementSpeed) {
         this->isDead == false && this->Side != enemy.getSide()) {
         
         std::cout << "!!!!!!!!!!!!!\n";
-        this->MoveSpeed = 0;
+        //this->MoveSpeed = 0;
 
-        enemy.setHP(enemy.getHP() - this->AttackRadius);
+        enemy.setHP(enemy.getHP() - this->DPS);
 
         
         std::cout << "hero: " << enemy.getHP() << "\n";
@@ -35,7 +35,7 @@ void Character::attack(Character& enemy, int movementSpeed) {
     }
     
     else 
-        this->MoveSpeed = 1;
+        this->MoveSpeed = movementSpeed;
 
     if (enemy.getHP() <= 0)
             enemy.Death();
