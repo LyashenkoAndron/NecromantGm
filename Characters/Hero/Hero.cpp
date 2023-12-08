@@ -77,19 +77,18 @@ void Hero::dessicationSkill() {}
 void Hero::morphismSkill() {}
 */
 
-/*void Hero::necromanceSkill(Character& enemy) {
+void Hero::necromanceSkill(Character& enemy) {
 
     // fix  here radius
     if (abs(enemy.getPosXY()[0] - this->PosX) <= this->AttackRadius &&
         abs(enemy.getPosXY()[1] - this->PosY) <= this->AttackRadius && 
         enemy.getAliveStatus() == true) {
         
-        std::cout << "@@@@@@@@@@\n";
         necromancy->changeFraction(enemy);
     }
 }
 
-
+/*
 void Hero::curseSkill(Character& enemy) {
     curse->dealDamageC(enemy);
     if (enemy.getHP() <= 0) {

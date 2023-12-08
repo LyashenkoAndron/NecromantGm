@@ -86,4 +86,7 @@ bool Character::getAliveStatus() { return isDead; }
 int Character::getXP() { return XP; }
 
 
+int Character::getMaxHP() { return MaxHP; }
+
+
 Character::Sides Character::getSide() { return Side; }

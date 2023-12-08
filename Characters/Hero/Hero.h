@@ -4,6 +4,8 @@
 #include "../Character.h"
 #include <cmath>
 #include <random> 
+#include <iostream>
+#include <filesystem>
 class Curse;
 class Necromancy;
 
@@ -17,15 +19,23 @@ protected:
     int MaxSlaves;
     Curse *curse;
     Necromancy *necromancy;
+    sf::Texture heroTexture;
 public:
     Hero() { this->initVariables(); }
 
-    Hero(int x, int y, int st, int dps, int radius, bool dead) : Character(x, y, st, dps, radius, dead) {} 
+    Hero(int x, int y, int st, int dps, int radius, bool dead) : Character(x, y, st, dps, radius, dead) {
+        if (!heroTexture.loadFromFile("Characters/Hero/hero.png")) {
+            std::string currentDirectory = std::filesystem::current_path().string();
+            std::cout << "Current directory: " << currentDirectory << std::endl;
+
+        }
+    } 
     //void upgradeSkill(Skill & skill);
     void initVariables() override;
     void attack(Character &enemy, int movementSpeed = 0) override;
     void lvlUp();
     void takeXP(int xp);
+
 
     //skills
     // крч, нам нахуй не нужен класс slave
@@ -34,7 +44,15 @@ public:
     //void morphismSkill();
 
     //void curseSkill(Character& enemy);
-    //void necromanceSkill(Character& enemy);
+    void necromanceSkill(Character& enemy);
+
+
+    void draw(sf::RenderWindow& window) const {
+        sf::Sprite heroSprite(heroTexture);
+        heroSprite.setScale(0.03, 0.03);
+        heroSprite.setPosition(PosX, PosY);
+        window.draw(heroSprite);
+    }
 };
 
 

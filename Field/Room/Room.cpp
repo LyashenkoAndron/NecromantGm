@@ -27,9 +27,11 @@ void Room::spawnEnemies(int minEnemies, int maxEnemies) {
         int dps = std::rand() % 5 + 1;
         int ms = std::rand() % 7 + 1;
         int radius = std::rand() % 50 + 50;
+        int vd = std::rand() % 500 + 50;
         bool dead = false;
 
-        spawnEnemy(x, y, st, dps, radius, ms, dead);
+        spawnEnemy(x, y, st, dps, radius, ms, dead, vd);
     }
 }
+
 

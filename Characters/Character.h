@@ -45,6 +45,7 @@ public:
     int getHP();
     int getXP();
     int getIntelligence();
+    int getMaxHP();
     bool getAliveStatus();
     Character::Sides getSide();
 
@@ -59,6 +60,7 @@ public:
     void setIntelligence(int intel) {this->Intelligence = intel; }
     void setRadiusAttack(int r) { this->AttackRadius = r; }
     void setAliveStatus(bool b) { this->isDead = b; }
+    void setMaxHP(int hp) { this->MaxHP = hp; }
 
     virtual void Death();
     virtual void initVariables();
